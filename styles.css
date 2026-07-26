@@ -258,13 +258,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   3. ENCABEZADO Y LOGO OFICIAL
+   3. ENCABEZADO NAVEGABLE SLEEK (ALTURA COMPACTA DE 68PX)
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 68px;
   z-index: 1000;
   transition: all var(--transition-normal);
   background: rgba(250, 245, 233, 0.95);
@@ -287,38 +288,42 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  height: 100%;
+  padding: 0;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .brand-logo-img {
-  height: 52px;
+  height: 42px;
+  max-height: 42px;
   width: auto;
   object-fit: contain;
   transition: all var(--transition-fast);
 }
 
 .site-header.scrolled .brand-logo-img {
-  content: url('assets/img/logo-auranativa-gold-transparent.png');
-  height: 48px;
+  content: url('assets/img/logo-header-horizontal-gold.png');
+  height: 38px;
+  max-height: 38px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
 .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--color-forest);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.3rem 0;
 }
 
 .nav-link::after {
@@ -339,17 +344,17 @@ h1, h2, h3, h4, h5, h6 {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .header-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--color-olive-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(178, 129, 43, 0.15);
   transition: all var(--transition-fast);
@@ -362,10 +367,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-nav-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--color-olive-dark);
   background: transparent;
-  padding: 0.5rem;
+  padding: 0.4rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -373,8 +378,8 @@ h1, h2, h3, h4, h5, h6 {
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: 92vh;
-  padding-top: 110px;
+  min-height: 90vh;
+  padding-top: 85px;
   padding-bottom: 3rem;
   display: flex;
   align-items: center;
@@ -1512,7 +1517,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 68px;
     left: 0;
     width: 100%;
     background: var(--color-forest);
