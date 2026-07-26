@@ -1,0 +1,1713 @@
+/* ==========================================================================
+   AURA NATIVA ORFEBRERÍA - HOJA DE ESTILOS PERSONALIZADA (CSS3)
+   Identidad visual: Maule, Talca, Orfebrería artesanal, Cultura Criolla.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES Y DISEÑO BASE
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta de colores oficial */
+  --color-olive-dark: #39451F;
+  --color-forest: #263417;
+  --color-aged-gold: #B2812B;
+  --color-aged-gold-light: #D4A24E;
+  --color-beige-light: #F3E8D2;
+  --color-cream: #FAF5E9;
+  --color-lapis: #1F3E72;
+  --color-lapis-light: #2A5296;
+  --color-dark-gray: #333333;
+  --color-text-muted: #555555;
+  --color-white: #FFFFFF;
+  --color-overlay: rgba(26, 36, 19, 0.75);
+
+  /* Tipografías */
+  --font-heading: 'Cinzel', 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-body: 'Montserrat', 'Lato', 'Open Sans', sans-serif;
+
+  /* Sombras y elevaciones */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --shadow-gold: 0 4px 15px rgba(178, 129, 43, 0.3);
+
+  /* Bordes y radios */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Reset general */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-dark-gray);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Tipografía global */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-forest);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-aged-gold);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-aged-gold);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+.section-title.text-left::after {
+  margin-left: 0;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.bg-beige {
+  background-color: var(--color-beige-light);
+}
+
+.bg-olive {
+  background-color: var(--color-olive-dark);
+  color: var(--color-white);
+}
+
+.bg-olive h1, .bg-olive h2, .bg-olive h3, .bg-olive h4 {
+  color: var(--color-white);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. BOTONES Y INSIGNIAS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background-color: var(--color-aged-gold);
+  color: var(--color-white);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--color-aged-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(178, 129, 43, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--color-olive-dark);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: var(--color-forest);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-aged-gold);
+  color: var(--color-forest);
+  background: transparent;
+}
+
+.btn-outline:hover, .btn-outline:focus {
+  background-color: var(--color-aged-gold);
+  color: var(--color-white);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.btn-whatsapp:hover, .btn-whatsapp:focus {
+  background-color: #1EBE5D;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.badge-marca-chile {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-aged-gold);
+  border: 1px solid var(--color-aged-gold-light);
+  color: #FFFFFF !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.badge-years {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-forest);
+  border: 1px solid var(--color-aged-gold);
+  color: #FFFFFF !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   3. ENCABEZADO Y NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all var(--transition-normal);
+  background: rgba(250, 245, 233, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(178, 129, 43, 0.2);
+}
+
+.site-header.scrolled {
+  background: var(--color-forest);
+  box-shadow: var(--shadow-md);
+  border-bottom-color: var(--color-aged-gold);
+}
+
+.site-header.scrolled .nav-link,
+.site-header.scrolled .brand-title,
+.site-header.scrolled .brand-sub,
+.site-header.scrolled .header-icon {
+  color: var(--color-white) !important;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-icon-symbol {
+  font-size: 1.6rem;
+  color: var(--color-aged-gold);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-olive-dark);
+  line-height: 1;
+}
+
+.brand-sub {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-aged-gold);
+  margin-top: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-aged-gold);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-icon {
+  font-size: 1.2rem;
+  color: var(--color-olive-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(178, 129, 43, 0.15);
+  transition: all var(--transition-fast);
+}
+
+.header-icon:hover {
+  background: var(--color-aged-gold);
+  color: var(--color-white) !important;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--color-olive-dark);
+  background: transparent;
+  padding: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. PORTADA PRINCIPAL (HERO) CON SLIDESHOW DINÁMICO DE JOYAS
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 92vh;
+  padding-top: 100px;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(26, 36, 19, 0.92), rgba(31, 62, 114, 0.88)), url('assets/img/joya-01.webp') center/cover no-repeat;
+  color: var(--color-white);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.65) 100%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  padding-right: 1.5rem;
+}
+
+.hero-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 3.4rem;
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: var(--color-beige-light);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  font-family: var(--font-heading);
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.hero-description {
+  font-size: 1.08rem;
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.hero-highlight-phrase {
+  display: block;
+  font-style: italic;
+  color: #FFE6A7;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--color-aged-gold);
+  padding-left: 1rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-card-preview {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 3px solid var(--color-aged-gold);
+  box-shadow: var(--shadow-lg);
+  background: var(--color-forest);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-card-img-wrap {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+}
+
+.hero-card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 30%, rgba(0, 0, 0, 0.6) 80%, transparent 100%);
+  color: #FFFFFF !important;
+  font-size: 0.88rem;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.hero-card-caption strong {
+  color: var(--color-aged-gold-light);
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.hero-dots-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hero-dot.active {
+  background: var(--color-aged-gold);
+  transform: scale(1.3);
+}
+
+/* --------------------------------------------------------------------------
+   5. SECCIÓN NUESTRA HISTORIA Y QUIÉNES SOMOS
+   -------------------------------------------------------------------------- */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.story-image-stack {
+  position: relative;
+}
+
+.story-img-main {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--color-white);
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+.story-highlight-box {
+  background-color: var(--color-beige-light);
+  border-left: 4px solid var(--color-aged-gold);
+  padding: 1.5rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 1.5rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-forest);
+}
+
+/* Stats / Indicadores */
+.indicators-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.indicator-card {
+  background: var(--color-white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+  transition: transform var(--transition-fast);
+}
+
+.indicator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-aged-gold);
+}
+
+.indicator-icon {
+  font-size: 2.2rem;
+  color: var(--color-aged-gold);
+  margin-bottom: 1rem;
+}
+
+.indicator-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.indicator-label {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. COLECCIONES DESTACADAS
+   -------------------------------------------------------------------------- */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.collection-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-aged-gold);
+}
+
+.collection-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.collection-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.collection-card:hover .collection-img-wrap img {
+  transform: scale(1.08);
+}
+
+.collection-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.collection-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.collection-phrase {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-aged-gold);
+  margin-bottom: 0.75rem;
+}
+
+.collection-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* --------------------------------------------------------------------------
+   7. CATÁLOGO DE PRODUCTOS FILTRABLE
+   -------------------------------------------------------------------------- */
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-aged-gold);
+  color: var(--color-forest);
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--color-olive-dark);
+  color: var(--color-white);
+  border-color: var(--color-olive-dark);
+}
+
+.catalog-search-wrap {
+  max-width: 400px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+}
+
+.catalog-search-input {
+  width: 100%;
+  padding: 0.75rem 1.25rem 0.75rem 2.8rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-aged-gold);
+  background: var(--color-white);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.catalog-search-input:focus {
+  border-color: var(--color-lapis);
+  box-shadow: 0 0 0 3px rgba(31, 62, 114, 0.15);
+}
+
+.catalog-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-aged-gold);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.15);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-aged-gold);
+}
+
+.product-img-box {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.product-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-img-box img {
+  transform: scale(1.06);
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--color-lapis);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.product-badge.por-encargo {
+  background: var(--color-aged-gold);
+}
+
+.product-badge.disponible {
+  background: #1EBE5D;
+}
+
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-category {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-aged-gold);
+  margin-bottom: 0.25rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.product-phrase {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.product-meta-list {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.product-meta-list li {
+  margin-bottom: 0.2rem;
+}
+
+.product-price-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.btn-card-sm {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. GALERÍA VISUAL Y LIGHTBOX
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-auto-rows: 240px;
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  color: var(--color-white);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-phrase {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-zoom-icon {
+  font-size: 1.5rem;
+  color: var(--color-aged-gold);
+}
+
+/* Modal Lightbox */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+  padding: 2rem;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+.lightbox-caption {
+  color: var(--color-white);
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: absolute;
+  color: var(--color-white);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  transition: color var(--transition-fast);
+}
+
+.lightbox-close {
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.lightbox-prev {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+  color: var(--color-aged-gold);
+}
+
+/* --------------------------------------------------------------------------
+   9. VIDEOS DEL PROCESO ARTESANAL (2 VIDEOS POR FILA)
+   -------------------------------------------------------------------------- */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.video-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+}
+
+.video-player-wrap {
+  position: relative;
+  background: #000;
+  width: 100%;
+  height: 320px;
+}
+
+.video-player-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-body {
+  padding: 1.5rem;
+}
+
+.video-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-forest);
+}
+
+.video-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. SERVICIOS DEL TALLER Y PEDIDOS PERSONALIZADOS
+   -------------------------------------------------------------------------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  background: var(--color-white);
+  padding: 2rem 1.25rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 1px solid rgba(178, 129, 43, 0.25);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-aged-gold);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--color-aged-gold);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--color-beige-light);
+  border: 1px solid var(--color-aged-gold);
+}
+
+.service-title {
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-forest);
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Pasos pedido personalizado */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.step-card {
+  background: var(--color-white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+  border-top: 4px solid var(--color-aged-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all var(--transition-normal);
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-top-color: var(--color-olive-dark);
+}
+
+.step-badge {
+  display: inline-block;
+  background: var(--color-beige-light);
+  color: var(--color-aged-gold);
+  border: 1px solid var(--color-aged-gold);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.step-title {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-forest);
+  line-height: 1.3;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.stone-warning-box {
+  background-color: var(--color-beige-light);
+  border: 1px solid var(--color-aged-gold);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.stone-warning-icon {
+  font-size: 1.8rem;
+  color: var(--color-aged-gold);
+}
+
+/* --------------------------------------------------------------------------
+   11. SECCIÓN HISTÓRICA DE TRADICIÓN FAMILIAR
+   -------------------------------------------------------------------------- */
+.heritage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.heritage-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.heritage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-aged-gold);
+}
+
+.heritage-img {
+  height: 280px;
+  object-fit: cover;
+  width: 100%;
+  background: #111;
+  filter: sepia(0.15) contrast(1.05);
+}
+
+.heritage-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.heritage-title {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-forest);
+}
+
+.heritage-text {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.heritage-source {
+  font-size: 0.78rem;
+  color: var(--color-aged-gold);
+  font-weight: 600;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   12. TESTIMONIOS Y PREGUNTAS FRECUENTES
+   -------------------------------------------------------------------------- */
+.testimonials-slider {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial-card {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  border: 1px solid var(--color-beige-light);
+}
+
+.testimonial-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-dark-gray);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-stars {
+  color: var(--color-aged-gold);
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-author {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+/* Accordion FAQ */
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-white);
+  transition: background var(--transition-fast);
+}
+
+.faq-question:hover {
+  background: var(--color-beige-light);
+}
+
+.faq-icon {
+  color: var(--color-aged-gold);
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal);
+  padding: 0 1.5rem;
+  background: var(--color-cream);
+  color: var(--color-dark-gray);
+  font-size: 0.95rem;
+}
+
+.faq-item.active .faq-answer {
+  padding: 1rem 1.5rem 1.5rem;
+  max-height: 300px;
+}
+
+/* --------------------------------------------------------------------------
+   13. UBICACIÓN Y FORMULARIO DE CONTACTO
+   -------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-info-card {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+}
+
+.contact-detail-item {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.contact-icon {
+  font-size: 1.6rem;
+  color: var(--color-aged-gold);
+}
+
+.contact-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-text p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.map-container {
+  width: 100%;
+  height: 250px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 1.5rem;
+  border: 2px solid var(--color-beige-light);
+}
+
+.contact-form-card {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(178, 129, 43, 0.2);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-aged-gold);
+  box-shadow: 0 0 0 3px rgba(178, 129, 43, 0.15);
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.form-checkbox input {
+  margin-top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   14. MODAL DETALLE DE PRODUCTO
+   -------------------------------------------------------------------------- */
+.product-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+  padding: 1.5rem;
+}
+
+.product-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-modal-box {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.8rem;
+  color: var(--color-dark-gray);
+  transition: color var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--color-aged-gold);
+}
+
+.modal-gallery-main {
+  height: 320px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: #f5f5f5;
+}
+
+.modal-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.modal-thumb.active {
+  border-color: var(--color-aged-gold);
+}
+
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   15. PIE DE PÁGINA Y BOTONES FLOTANTES
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-forest);
+  color: var(--color-white);
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-top: 3px solid var(--color-aged-gold);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand .brand-title {
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1rem 0;
+}
+
+.footer-links h4 {
+  color: var(--color-aged-gold);
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links ul a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+
+.footer-links ul a:hover {
+  color: var(--color-aged-gold-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Botones Flotantes */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: transform var(--transition-fast);
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 95px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--color-olive-dark);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-md);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-aged-gold);
+}
+
+/* --------------------------------------------------------------------------
+   16. MEDIA QUERIES (RESPONSIVE)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .heritage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-content {
+    padding-right: 0;
+  }
+  .hero-badge-group, .hero-actions {
+    justify-content: center;
+  }
+  .hero-highlight-phrase {
+    border-left: none;
+    border-top: 2px solid var(--color-aged-gold);
+    padding-left: 0;
+    padding-top: 0.75rem;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-modal-box {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--color-forest);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.25rem;
+    transform: translateY(-150%);
+    transition: transform var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-menu.open {
+    transform: translateY(0);
+  }
+  .nav-link {
+    color: var(--color-white) !important;
+    font-size: 1.1rem;
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .indicators-grid {
+    grid-template-columns: 1fr;
+  }
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heritage-grid {
+    grid-template-columns: 1fr;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
