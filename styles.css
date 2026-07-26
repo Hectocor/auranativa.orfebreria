@@ -258,7 +258,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   3. ENCABEZADO NAVEGABLE SLEEK (ALTURA COMPACTA DE 68PX)
+   3. ENCABEZADO NAVEGABLE UNIFORME Y ELEGANTE (ALTURA COMPACTA DE 68PX)
+   Mantener fondo claro constante para preservar la legibilidad perfecta del logo
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
@@ -268,20 +269,15 @@ h1, h2, h3, h4, h5, h6 {
   height: 68px;
   z-index: 1000;
   transition: all var(--transition-normal);
-  background: rgba(250, 245, 233, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(250, 245, 233, 0.97);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(178, 129, 43, 0.2);
 }
 
 .site-header.scrolled {
-  background: var(--color-forest);
-  box-shadow: var(--shadow-md);
-  border-bottom-color: var(--color-aged-gold);
-}
-
-.site-header.scrolled .nav-link,
-.site-header.scrolled .header-icon {
-  color: var(--color-white) !important;
+  background: rgba(250, 245, 233, 0.98);
+  box-shadow: 0 4px 20px rgba(38, 52, 23, 0.12);
+  border-bottom: 2px solid var(--color-aged-gold);
 }
 
 .header-container {
@@ -299,17 +295,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo-img {
-  height: 42px;
-  max-height: 42px;
+  height: 44px;
+  max-height: 44px;
   width: auto;
   object-fit: contain;
   transition: all var(--transition-fast);
 }
 
 .site-header.scrolled .brand-logo-img {
-  content: url('assets/img/logo-header-horizontal-gold.png');
-  height: 38px;
-  max-height: 38px;
+  height: 40px;
+  max-height: 40px;
 }
 
 .nav-menu {
@@ -1371,8 +1366,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-brand .footer-logo-img {
-  height: 52px;
-  max-height: 52px;
+  height: 55px;
+  max-height: 55px;
   width: auto;
   object-fit: contain;
   margin-bottom: 1rem;
