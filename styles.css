@@ -860,15 +860,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .video-player-wrap {
   position: relative;
-  background: #000;
+  background: #111;
   width: 100%;
   height: 320px;
+  overflow: hidden;
 }
 
-.video-player-wrap video {
+.video-player-wrap video,
+.video-player-wrap picture,
+.video-player-wrap .process-gif-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.gif-video-link {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 5;
+  text-decoration: none;
+}
+
+.gif-play-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(38, 52, 23, 0.88);
+  backdrop-filter: blur(6px);
+  color: var(--color-aged-gold-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(212, 162, 78, 0.4);
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gif-video-link:hover .gif-play-badge {
+  background: var(--color-forest);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  border-color: var(--color-aged-gold-light);
 }
 
 .video-body {
