@@ -258,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   3. ENCABEZADO Y NAVEGACIÓN
+   3. ENCABEZADO Y LOGO OFICIAL
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
@@ -279,8 +279,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header.scrolled .nav-link,
-.site-header.scrolled .brand-title,
-.site-header.scrolled .brand-sub,
 .site-header.scrolled .header-icon {
   color: var(--color-white) !important;
 }
@@ -289,40 +287,24 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
 }
 
-.brand-icon-symbol {
-  font-size: 1.6rem;
-  color: var(--color-aged-gold);
+.brand-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  transition: all var(--transition-fast);
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--color-olive-dark);
-  line-height: 1;
-}
-
-.brand-sub {
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--color-aged-gold);
-  margin-top: 2px;
+.site-header.scrolled .brand-logo-img {
+  content: url('assets/img/logo-auranativa-gold-transparent.png');
+  height: 48px;
 }
 
 .nav-menu {
@@ -392,7 +374,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-section {
   position: relative;
   min-height: 92vh;
-  padding-top: 100px;
+  padding-top: 110px;
   padding-bottom: 3rem;
   display: flex;
   align-items: center;
@@ -859,139 +841,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   8. GALERÍA VISUAL Y LIGHTBOX
-   -------------------------------------------------------------------------- */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-auto-rows: 240px;
-  gap: 1rem;
-}
-
-.gallery-item {
-  position: relative;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: var(--color-overlay);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  text-align: center;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  color: var(--color-white);
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
-
-.gallery-phrase {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.gallery-zoom-icon {
-  font-size: 1.5rem;
-  color: var(--color-aged-gold);
-}
-
-/* Modal Lightbox */
-.lightbox-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(0, 0, 0, 0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-normal);
-  padding: 2rem;
-}
-
-.lightbox-modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lightbox-img {
-  max-width: 100%;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lg);
-}
-
-.lightbox-caption {
-  color: var(--color-white);
-  margin-top: 1rem;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-.lightbox-close, .lightbox-prev, .lightbox-next {
-  position: absolute;
-  color: var(--color-white);
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  transition: color var(--transition-fast);
-}
-
-.lightbox-close {
-  top: 1rem;
-  right: 1.5rem;
-}
-
-.lightbox-prev {
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.lightbox-next {
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
-  color: var(--color-aged-gold);
-}
-
-/* --------------------------------------------------------------------------
-   9. VIDEOS DEL PROCESO ARTESANAL (2 VIDEOS POR FILA)
+   8. VIDEOS DEL PROCESO ARTESANAL (2 VIDEOS POR FILA)
    -------------------------------------------------------------------------- */
 .videos-grid {
   display: grid;
@@ -1036,7 +886,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   10. SERVICIOS DEL TALLER Y PEDIDOS PERSONALIZADOS
+   9. SERVICIOS DEL TALLER Y PEDIDOS PERSONALIZADOS
    -------------------------------------------------------------------------- */
 .services-grid {
   display: grid;
@@ -1160,7 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   11. SECCIÓN HISTÓRICA DE TRADICIÓN FAMILIAR
+   10. SECCIÓN HISTÓRICA DE TRADICIÓN FAMILIAR
    -------------------------------------------------------------------------- */
 .heritage-grid {
   display: grid;
@@ -1190,7 +1040,7 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   width: 100%;
   background: #111;
-  filter: sepia(0.15) contrast(1.05);
+  filter: sepia(0.12) contrast(1.05);
 }
 
 .heritage-body {
@@ -1222,7 +1072,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   12. TESTIMONIOS Y PREGUNTAS FRECUENTES
+   11. TESTIMONIOS Y PREGUNTAS FRECUENTES
    -------------------------------------------------------------------------- */
 .testimonials-slider {
   max-width: 800px;
@@ -1317,7 +1167,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   13. UBICACIÓN Y FORMULARIO DE CONTACTO
+   12. UBICACIÓN Y FORMULARIO DE CONTACTO
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
@@ -1411,7 +1261,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   14. MODAL DETALLE DE PRODUCTO
+   13. MODAL DETALLE DE PRODUCTO
    -------------------------------------------------------------------------- */
 .product-modal {
   position: fixed;
@@ -1498,7 +1348,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   15. PIE DE PÁGINA Y BOTONES FLOTANTES
+   14. PIE DE PÁGINA Y BOTONES FLOTANTES
    -------------------------------------------------------------------------- */
 .site-footer {
   background: var(--color-forest);
@@ -1515,9 +1365,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 3rem;
 }
 
-.footer-brand .brand-title {
-  color: var(--color-white);
-  font-size: 1.5rem;
+.footer-brand .footer-logo-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
 }
 
 .footer-desc {
@@ -1608,7 +1460,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   16. MEDIA QUERIES (RESPONSIVE)
+   15. MEDIA QUERIES (RESPONSIVE)
    -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   .services-grid {
