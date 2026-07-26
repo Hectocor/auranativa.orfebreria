@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
-     1. ARREGLO DE PRODUCTOS DEL CATÁLOGO (Incluye Joya Corazón de Lapislázuli)
+     1. ARREGLO DE PRODUCTOS DEL CATÁLOGO (Galería Única Principal)
      ========================================================================== */
   const productos = [
     {
@@ -137,25 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   /* ==========================================================================
-     2. GALERÍA AURA NATIVA (MOSAICO)
-     ========================================================================== */
-  const fotosGaleria = [
-    { src: "assets/img/joya-destacada-corazon.webp", categoria: "lapislazuli", frase: "Un corazón de azul profundo nacido en nuestra tierra" },
-    { src: "assets/img/historia-familia-01.webp", categoria: "patrimonio", frase: "Tradición y taller orfebre desde el siglo XX" },
-    { src: "assets/img/joya-01.webp", categoria: "productos", frase: "Elegancia natural en cada pétalo" },
-    { src: "assets/img/joya-02.webp", categoria: "taller", frase: "Hecho a mano en Talca" },
-    { src: "assets/img/joya-03.webp", categoria: "lapislazuli", frase: "Un tesoro nacido en nuestra tierra" },
-    { src: "assets/img/joya-04.webp", categoria: "criolla", frase: "Tradición convertida en arte" },
-    { src: "assets/img/historia-familia-02.webp", categoria: "taller", frase: "Décadas dedicadas a la atención y reparación artesanal" },
-    { src: "assets/img/joya-05.webp", categoria: "patrimonio", frase: "Plata, identidad y memoria" },
-    { src: "assets/img/joya-06.webp", categoria: "taller", frase: "Cada piedra es diferente. Cada joya también" },
-    { src: "assets/img/joya-07.webp", categoria: "productos", frase: "El valor de lo auténtico" },
-    { src: "assets/img/historia-familia-03.webp", categoria: "patrimonio", frase: "Catálogos históricos y grabados a mano" },
-    { src: "assets/img/joya-08.webp", categoria: "criolla", frase: "Una historia para llevar contigo" }
-  ];
-
-  /* ==========================================================================
-     3. ROTADOR DINÁMICO DE JOYAS DESTACADAS EN HERO
+     2. ROTADOR DINÁMICO DE JOYAS DESTACADAS EN HERO
      ========================================================================== */
   const heroFeaturedItems = [
     {
@@ -244,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startHeroTimer();
 
   /* ==========================================================================
-     4. RENDERING DINÁMICO DEL CATÁLOGO DE PRODUCTOS
+     3. RENDERING DINÁMICO DEL CATÁLOGO DE PRODUCTOS
      ========================================================================== */
   const productsContainer = document.getElementById('products-container');
   const catalogFilterBtns = document.querySelectorAll('.catalog-filter-btn');
@@ -335,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     5. MODAL DETALLE DE PRODUCTO
+     4. MODAL DETALLE DE PRODUCTO
      ========================================================================== */
   const productModal = document.getElementById('product-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
@@ -403,90 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     6. RENDERING Y LIGHTBOX DE GALERÍA DE FOTOS
-     ========================================================================== */
-  const galleryGrid = document.getElementById('gallery-grid');
-  const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
-
-  function renderGallery(filter = 'all') {
-    if (!galleryGrid) return;
-    const items = filter === 'all' ? fotosGaleria : fotosGaleria.filter(f => f.categoria === filter);
-
-    galleryGrid.innerHTML = items.map((f, i) => `
-      <div class="gallery-item" data-index="${i}">
-        <img src="${f.src}" alt="${f.frase}" loading="lazy">
-        <div class="gallery-overlay">
-          <p class="gallery-phrase">"${f.frase}"</p>
-          <span class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></span>
-        </div>
-      </div>
-    `).join('');
-
-    // Attach click for lightbox
-    galleryGrid.querySelectorAll('.gallery-item').forEach((item, idx) => {
-      item.addEventListener('click', () => openLightbox(idx, items));
-    });
-  }
-
-  renderGallery();
-
-  galleryFilterBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      galleryFilterBtns.forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      renderGallery(e.target.getAttribute('data-filter'));
-    });
-  });
-
-  // Lightbox Controls
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const lightboxClose = document.getElementById('lightbox-close');
-  const lightboxPrev = document.getElementById('lightbox-prev');
-  const lightboxNext = document.getElementById('lightbox-next');
-
-  let currentGalleryList = [];
-  let currentGalleryIndex = 0;
-
-  function openLightbox(index, list) {
-    currentGalleryList = list;
-    currentGalleryIndex = index;
-    updateLightboxContent();
-    lightboxModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function updateLightboxContent() {
-    if (!currentGalleryList[currentGalleryIndex]) return;
-    const item = currentGalleryList[currentGalleryIndex];
-    lightboxImg.src = item.src;
-    lightboxCaption.textContent = item.frase;
-  }
-
-  function closeLightbox() {
-    lightboxModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightboxPrev) lightboxPrev.addEventListener('click', () => {
-    currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryList.length) % currentGalleryList.length;
-    updateLightboxContent();
-  });
-  if (lightboxNext) lightboxNext.addEventListener('click', () => {
-    currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryList.length;
-    updateLightboxContent();
-  });
-
-  if (lightboxModal) {
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-  }
-
-  /* ==========================================================================
-     7. ACCORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
+     5. ACCORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
      ========================================================================== */
   const faqQuestions = document.querySelectorAll('.faq-question');
 
@@ -504,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     8. FORMULARIO DE CONTACTO Y GENERACIÓN WHATSAPP
+     6. FORMULARIO DE CONTACTO Y GENERACIÓN WHATSAPP
      ========================================================================== */
   const contactForm = document.getElementById('contact-form');
 
@@ -539,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     9. SERVICIO EXPRESS WHATSAPP GENERATOR
+     7. SERVICIO EXPRESS WHATSAPP GENERATOR
      ========================================================================== */
   const serviceQuoteBtn = document.getElementById('btn-cotizar-servicio');
   if (serviceQuoteBtn) {
@@ -550,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     10. NAVEGACIÓN MENÚ MÓVIL Y SCROLL EFFECTS
+     8. NAVEGACIÓN MENÚ MÓVIL Y SCROLL EFFECTS
      ========================================================================== */
   const siteHeader = document.getElementById('site-header');
   const mobileToggle = document.getElementById('mobile-toggle');
@@ -591,13 +490,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeProductModal();
-      closeLightbox();
-    } else if (e.key === 'ArrowRight' && lightboxModal.classList.contains('active')) {
-      currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryList.length;
-      updateLightboxContent();
-    } else if (e.key === 'ArrowLeft' && lightboxModal.classList.contains('active')) {
-      currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryList.length) % currentGalleryList.length;
-      updateLightboxContent();
     }
   });
 });

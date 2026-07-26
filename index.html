@@ -43,13 +43,12 @@
         </div>
       </a>
 
-      <!-- Menú de Navegación Principal -->
+      <!-- Menú de Navegación Principal (Sin sección Mosaico) -->
       <nav id="nav-menu" class="nav-menu" aria-label="Menú principal">
         <a href="#inicio" class="nav-link active">Inicio</a>
         <a href="#historia" class="nav-link">Nuestra historia</a>
         <a href="#colecciones" class="nav-link">Colecciones</a>
         <a href="#catalogo" class="nav-link">Catálogo</a>
-        <a href="#galeria" class="nav-link">Galería</a>
         <a href="#taller" class="nav-link">Taller</a>
         <a href="#patrimonio" class="nav-link">Patrimonio</a>
         <a href="#contacto" class="nav-link">Contacto</a>
@@ -281,7 +280,7 @@
     </section>
 
     <!-- ==========================================================================
-         8. CATÁLOGO DE PRODUCTOS DINÁMICO
+         8. CATÁLOGO DE PRODUCTOS DINÁMICO (Única Galería Principal)
          ========================================================================== -->
     <section id="catalogo" class="section-padding bg-beige">
       <div class="container">
@@ -318,35 +317,9 @@
     </section>
 
     <!-- ==========================================================================
-         9. GALERÍA AURA NATIVA (MOSAICO CON LIGHTBOX)
-         ========================================================================== -->
-    <section id="galeria" class="section-padding">
-      <div class="container">
-        <div class="text-center">
-          <span class="section-tag">Mosaico Fotográfico</span>
-          <h2 class="section-title">Galería Aura Nativa</h2>
-          <p class="section-subtitle">Detalles de piedras, pulidos, herramientas y momentos del taller.</p>
-        </div>
-
-        <div class="catalog-controls" style="margin-bottom: 2rem;">
-          <button class="filter-btn gallery-filter-btn active" data-filter="all">Todas las fotos</button>
-          <button class="filter-btn gallery-filter-btn" data-filter="productos">Productos</button>
-          <button class="filter-btn gallery-filter-btn" data-filter="taller">Taller y Oficio</button>
-          <button class="filter-btn gallery-filter-btn" data-filter="lapislazuli">Lapislázuli</button>
-          <button class="filter-btn gallery-filter-btn" data-filter="criolla">Criolla</button>
-          <button class="filter-btn gallery-filter-btn" data-filter="patrimonio">Patrimonio</button>
-        </div>
-
-        <div id="gallery-grid" class="gallery-grid">
-          <!-- Generado dinámicamente por script.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
          10. VIDEOS DEL PROCESO ARTESANAL (ALINEADO A 2 VIDEOS POR FILA)
          ========================================================================== -->
-    <section id="taller" class="section-padding bg-beige">
+    <section id="taller" class="section-padding">
       <div class="container">
         <div class="text-center">
           <span class="section-tag">Manos Maulinas</span>
@@ -417,7 +390,7 @@
     <!-- ==========================================================================
          11. SERVICIOS DEL TALLER Y PEDIDOS PERSONALIZADOS
          ========================================================================== -->
-    <section id="servicios" class="section-padding">
+    <section id="servicios" class="section-padding bg-beige">
       <div class="container">
         <div class="text-center">
           <span class="section-tag">Atención Personalizada</span>
@@ -519,9 +492,9 @@
     </section>
 
     <!-- ==========================================================================
-         12. NUEVA SECCIÓN HISTÓRICA DE TRADICIÓN FAMILIAR
+         12. SECCIÓN HISTÓRICA CON LAS FOTOS FAMILIARES AUTÉNTICAS
          ========================================================================== -->
-    <section id="patrimonio" class="section-padding bg-beige">
+    <section id="patrimonio" class="section-padding">
       <div class="container">
         <div class="text-center">
           <span class="section-tag">Tradición de Generaciones</span>
@@ -534,7 +507,7 @@
         <div class="heritage-grid">
           
           <article class="heritage-card">
-            <img src="assets/img/historia-familia-01.webp" alt="Relojería y Joyería Madrigal" class="heritage-img">
+            <img src="assets/img/historia-madrigal.webp" alt="Relojería y Joyería Madrigal" class="heritage-img">
             <div class="heritage-body">
               <h3 class="heritage-title">Relojería y Joyería Madrigal</h3>
               <p class="heritage-text">Los inicios del taller familiar, donde la precisión del oficio relojero y la pasión por moldear metales preciosos sentaron las bases de nuestra tradición.</p>
@@ -543,7 +516,7 @@
           </article>
 
           <article class="heritage-card">
-            <img src="assets/img/historia-familia-02.webp" alt="El Taller Tradicional" class="heritage-img">
+            <img src="assets/img/historia-taller.webp" alt="El Taller Tradicional" class="heritage-img">
             <div class="heritage-body">
               <h3 class="heritage-title">El Taller Tradicional</h3>
               <p class="heritage-text">Décadas dedicadas a la atención personalizada, restauración de piezas queridas y el aprendizaje continuo de técnicas artesanales.</p>
@@ -552,7 +525,7 @@
           </article>
 
           <article class="heritage-card">
-            <img src="assets/img/historia-familia-03.webp" alt="Catálogos Históricos de Anillos" class="heritage-img">
+            <img src="assets/img/historia-catalogo.webp" alt="Catálogos Históricos de Anillos" class="heritage-img">
             <div class="heritage-body">
               <h3 class="heritage-title">Modelado y Catálogos Antiguos</h3>
               <p class="heritage-text">Registros antiguos de modelos de anillos y grabados a mano que inspiraron nuestros métodos de forjado y cincelado clásico.</p>
@@ -561,7 +534,7 @@
           </article>
 
           <article class="heritage-card">
-            <img src="assets/img/historia-familia-04.webp" alt="Legado de Generaciones" class="heritage-img">
+            <img src="assets/img/historia-fundadoras.webp" alt="Legado de Generaciones" class="heritage-img">
             <div class="heritage-body">
               <h3 class="heritage-title">Legado de Generaciones</h3>
               <p class="heritage-text">El compromiso afectivo y la entrega de conocimientos transmitidos de generación en generación que dieron origen a Aura Nativa Orfebrería.</p>
@@ -948,18 +921,6 @@
           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
         </a>
       </div>
-    </div>
-  </div>
-
-  <!-- Lightbox de Galería de Fotos -->
-  <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true">
-    <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar ventana">&times;</button>
-    <button id="lightbox-prev" class="lightbox-prev" aria-label="Fotografía anterior">&lsaquo;</button>
-    <button id="lightbox-next" class="lightbox-next" aria-label="Fotografía siguiente">&rsaquo;</button>
-    
-    <div class="lightbox-content">
-      <img id="lightbox-img" class="lightbox-img" src="" alt="Fotografía ampliada">
-      <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
   </div>
 
